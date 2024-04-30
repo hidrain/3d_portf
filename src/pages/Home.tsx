@@ -2,7 +2,7 @@
 //     POPUP
 // </div>
 
-import { Canvas } from "@react-three/fiber"
+import { Canvas, Euler } from "@react-three/fiber"
 import { Suspense, useState } from "react"
 import { Loader } from "../components"
 import { Bird, Island, Plane, Sky } from "../models"
@@ -10,11 +10,12 @@ import { Bird, Island, Plane, Sky } from "../models"
 export const Home = () => {
 
     const [isRotating, setIsRotating] = useState<boolean>(false)
+    const [currentStage, setCurrentStage] = useState<number>(1);
 
     const adjustIslandForScreenSice = () => {
-        let screenScale: number[] | null = null
-        let screenPosition: number[] = [0, -6.5, -43]
-        let rotation: number[] = [0.1, 4.7, 0]
+        let screenScale: Euler | undefined = undefined
+        let screenPosition: Euler | undefined = [0, -6.5, -43]
+        let rotation: Euler | undefined = [0.1, 4.7, 0]
 
         if (window.innerWidth < 768) {
             screenScale = [0.9, 0.9, 0.9]
@@ -26,8 +27,8 @@ export const Home = () => {
     const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSice()
 
     const adjustPlaneForScreenSice = () => {
-        let screenScale: number[] = []
-        let screenPosition: number[] = []
+        let screenScale: Euler | undefined = undefined
+        let screenPosition: Euler | undefined = undefined
 
         if (window.innerWidth < 768) {
             screenScale = [1.5, 1.5, 1.5]
@@ -60,6 +61,7 @@ export const Home = () => {
                         rotation={islandRotation}
                         isRotating={isRotating}
                         setIsRotating={setIsRotating}
+                        setCurrentStage={setCurrentStage}
                     />
                     <Plane
                         planeScale={planeScale}

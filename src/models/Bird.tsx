@@ -3,7 +3,7 @@ import birdScene from "../assets/3d/bird.glb";
 
 export const Bird = () => {
 
-    const { scene, animation } = useGLTF(birdScene)
+    const { scene } = useGLTF(birdScene)
 
     return (
         <mesh position={[-5, 2, 1]} scale={[0.003, 0.003, 0.003]}>
