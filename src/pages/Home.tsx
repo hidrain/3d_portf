@@ -1,10 +1,6 @@
-// <div className='absolute top-28 left-0 right-0 z-10 flex align-center justify-center'>
-//     POPUP
-// </div>
-
 import { Canvas, Euler } from "@react-three/fiber"
 import { Suspense, useState } from "react"
-import { Loader } from "../components"
+import { HomeInfo, Loader } from "../components"
 import { Bird, Island, Plane, Sky } from "../models"
 
 export const Home = () => {
@@ -43,6 +39,10 @@ export const Home = () => {
 
     return (
         <section className='w-full h-screen relative'>
+            <div className='absolute top-28 left-0 right-0 z-10 flex align-center justify-center'>
+                {currentStage && <HomeInfo currentStage={currentStage} />}
+            </div>
+
             <Canvas
                 className={`w-full h-screen bg-transparent
                 ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
