@@ -18,13 +18,7 @@ import { Group, Object3DEventMap } from "three";
 import * as THREE from 'three';
 import { useFrame, useThree } from "@react-three/fiber";
 
-export function Island({
-    // isRotating,
-    // setIsRotating,
-    // setCurrentStage,
-    // currentFocusPoint,
-    ...props
-}) {
+export function Island({ ...props }) {
     const islandRef = useRef() as React.Ref<Group<Object3DEventMap>> | null;
     // Get access to the Three.js renderer and viewport
     const { gl, viewport } = useThree();
