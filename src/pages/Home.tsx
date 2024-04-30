@@ -54,7 +54,9 @@ export const Home = () => {
                     <hemisphereLight color='#b1e1ff' groundColor='#000000' intensity={1} />
 
                     <Bird />
-                    <Sky />
+                    <Sky
+                        isRotating={isRotating}
+                    />
                     <Island
                         scale={islandScale}
                         position={islandPosition}
